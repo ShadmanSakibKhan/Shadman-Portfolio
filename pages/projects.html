@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <title>Projects — Shadman Sakib Khan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/projects.css">
+</head>
+<body>
+<div class="noise-overlay"></div>
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<div id="scroll-progress"></div>
+<div id="loading-screen">
+  <div class="loading-logo">Projects<span class="gradient-text">.</span></div>
+  <div class="loading-bar-wrap"><div class="loading-bar"></div></div>
+  <div class="loading-pct">0%</div>
+</div>
+
+<nav class="nav">
+  <a href="../index.html" class="nav-logo"><span class="nav-logo-dot"></span>Shadman<span class="gradient-text">.</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="research.html" target="_blank">Research</a></li>
+    <li><a href="projects.html" class="active">Projects</a></li>
+    <li><a href="expertise.html" target="_blank">Expertise</a></li>
+    <li><a href="contact.html" target="_blank">Contact</a></li>
+  </ul>
+  <div class="nav-cta"><a href="contact.html" target="_blank" class="btn btn-primary" data-magnetic>Hire Me</a></div>
+  <button class="nav-hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile">
+  <ul>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="research.html" target="_blank">Research</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="expertise.html" target="_blank">Expertise</a></li>
+    <li><a href="contact.html" target="_blank">Contact</a></li>
+  </ul>
+</div>
+
+<div style="max-width:var(--max-width);margin:0 auto;padding:calc(var(--nav-height) + 60px) clamp(20px,5vw,60px) 80px;">
+  <div style="font-family:var(--font-mono);font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ai-blue);margin-bottom:20px;display:flex;align-items:center;gap:8px;animation:fadeUp 0.6s ease both;">
+    <span style="width:20px;height:1.5px;background:var(--ai-blue);border-radius:2px;"></span>Portfolio
+  </div>
+  <h1 style="font-family:var(--font-display);font-size:clamp(2.5rem,6vw,5.5rem);font-weight:800;letter-spacing:-0.04em;line-height:1.05;animation:fadeUp 0.6s 0.1s ease both;">
+    Things I've <span class="gradient-text">built.</span>
+  </h1>
+  <p style="font-size:clamp(1rem,1.8vw,1.15rem);color:var(--gray-500);max-width:580px;line-height:1.75;margin-top:20px;animation:fadeUp 0.6s 0.2s ease both;">
+    AI research projects, web applications, and ML systems — built across university, internships, and personal exploration.
+  </p>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All Projects</button>
+    <button class="filter-btn" data-filter="ai">AI & ML</button>
+    <button class="filter-btn" data-filter="web">Web Dev</button>
+    <button class="filter-btn" data-filter="research">Research</button>
+  </div>
+
+  <div class="projects-grid">
+
+    <!-- Research Paper 1 -->
+    <div class="project-card project-featured reveal" data-category="ai research">
+      <div class="project-thumb" style="background:linear-gradient(135deg,#fefce8,#fef9c3);">
+        <span class="project-thumb-emoji">📊</span>
+        <div class="project-overlay">
+          <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0296336" target="_blank" class="ov-primary">Read Paper</a>
+          <a href="research.html" class="ov-secondary">Details</a>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-body-header">
+          <h3>Consumer Purchase Behavior ML Model</h3>
+          <span class="tag tag-blue">Q1 — PLoS ONE</span>
+        </div>
+        <div class="project-tags">
+          <span class="tag tag-blue">Machine Learning</span>
+          <span class="tag tag-purple">Behavioral AI</span>
+          <span class="tag tag-gray">Social Media Analytics</span>
+          <span class="tag tag-gray">Theory of Planned Behavior</span>
+        </div>
+        <p>Published in PLoS ONE (Q1 Journal), Dec 2023. Integrates Theory of Planned Behavior with ML algorithms to predict consumer purchase intentions on social media. DOI: 10.17632/nzy5528nst.2</p>
+        <div class="project-metrics">
+          <div><span class="project-metric-val">Q1</span><div class="project-metric-label">Journal Rank</div></div>
+          <div><span class="project-metric-val">PLoS</span><div class="project-metric-label">Publisher</div></div>
+          <div><span class="project-metric-val">2023</span><div class="project-metric-label">Year</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Research Paper 2 -->
+    <div class="project-card reveal reveal-delay-1" data-category="ai research">
+      <div class="project-thumb" style="background:linear-gradient(135deg,#fdf4ff,#f3e8ff);">
+        <span class="project-thumb-emoji">🕵️</span>
+        <div class="project-overlay">
+          <a href="https://ieeexplore.ieee.org/abstract/document/11022522" target="_blank" class="ov-primary">IEEE Xplore</a>
+          <a href="research.html" class="ov-secondary">Details</a>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-body-header">
+          <h3>Deepfake Detection System</h3>
+          <span class="tag tag-purple">IEEE ICCIT</span>
+        </div>
+        <div class="project-tags">
+          <span class="tag tag-blue">Computer Vision</span>
+          <span class="tag tag-purple">Knowledge Distillation</span>
+          <span class="tag tag-gray">Transfer Learning</span>
+        </div>
+        <p>Published at 27th ICCIT 2024, IEEE. Smartphone-based deepfake detection using transfer learning + lightweight knowledge distillation for mobile deployment. DOI: 10.1109/ICCIT64611.2024.11022522</p>
+        <div class="project-metrics">
+          <div><span class="project-metric-val">IEEE</span><div class="project-metric-label">Publisher</div></div>
+          <div><span class="project-metric-val">2024</span><div class="project-metric-label">Year</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Itransition Internship -->
+    <div class="project-card reveal" data-category="web">
+      <div class="project-thumb" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);">
+        <span class="project-thumb-emoji">💼</span>
+        <div class="project-overlay">
+          <a href="contact.html" class="ov-primary">Enquire</a>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-body-header">
+          <h3>Itransition Front-End Intern</h3>
+          <span class="tag tag-blue">Internship</span>
+        </div>
+        <div class="project-tags">
+          <span class="tag tag-blue">HTML/CSS/JS</span>
+          <span class="tag tag-gray">Problem Solving</span>
+          <span class="tag tag-gray">Front-End</span>
+        </div>
+        <p>Remote internship at Itransition (7 Mar – 15 May 2025). Problem solving tasks and final project development in front-end web development.</p>
+        <div class="project-metrics">
+          <div><span class="project-metric-val">2mo</span><div class="project-metric-label">Duration</div></div>
+          <div><span class="project-metric-val">Remote</span><div class="project-metric-label">Type</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CodeAlpha Internship -->
+    <div class="project-card reveal reveal-delay-1" data-category="ai">
+      <div class="project-thumb" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);">
+        <span class="project-thumb-emoji">🤖</span>
+        <div class="project-overlay">
+          <a href="contact.html" class="ov-primary">Enquire</a>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-body-header">
+          <h3>CodeAlpha ML/AI Intern</h3>
+          <span class="tag tag-blue">Internship</span>
+        </div>
+        <div class="project-tags">
+          <span class="tag tag-blue">Machine Learning</span>
+          <span class="tag tag-purple">Python</span>
+          <span class="tag tag-gray">AI Projects</span>
+        </div>
+        <p>Machine Learning (AI) Internship at CodeAlpha (10 Jun – 10 Jul 2025). Applied ML problem solving tasks and final AI project delivery.</p>
+        <div class="project-metrics">
+          <div><span class="project-metric-val">1mo</span><div class="project-metric-label">Duration</div></div>
+          <div><span class="project-metric-val">Remote</span><div class="project-metric-label">Type</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alor Dhara Society -->
+    <div class="project-card reveal" data-category="web">
+      <div class="project-thumb" style="background:linear-gradient(135deg,#fff7ed,#ffedd5);">
+        <span class="project-thumb-emoji">🌟</span>
+        <div class="project-overlay">
+          <a href="contact.html" class="ov-primary">Learn More</a>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-body-header">
+          <h3>Alor Dhara Society (ADHASO)</h3>
+          <span class="tag tag-purple">Founder</span>
+        </div>
+        <div class="project-tags">
+          <span class="tag tag-purple">Leadership</span>
+          <span class="tag tag-gray">Social Impact</span>
+          <span class="tag tag-gray">Since 2013</span>
+        </div>
+        <p>Founded and serving as President of Alor Dhara Society (ADHASO) since November 2013 — a social organization focused on community development and impact.</p>
+        <div class="project-metrics">
+          <div><span class="project-metric-val">10+</span><div class="project-metric-label">Years Active</div></div>
+          <div><span class="project-metric-val">2013</span><div class="project-metric-label">Founded</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quantum Computing -->
+    <div class="project-card reveal reveal-delay-1" data-category="ai research">
+      <div class="project-thumb" style="background:linear-gradient(135deg,#f5f3ff,#ede9fe);">
+        <span class="project-thumb-emoji">⚛️</span>
+        <div class="project-overlay">
+          <a href="research.html" class="ov-primary">View Cert</a>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-body-header">
+          <h3>Quantum Computing Project</h3>
+          <span class="tag tag-purple">🥇 Medal</span>
+        </div>
+        <div class="project-tags">
+          <span class="tag tag-blue">IBM QISKIT</span>
+          <span class="tag tag-purple">COMSOL</span>
+          <span class="tag tag-gray">Quantum ML</span>
+        </div>
+        <p>Quantum Mechanics & Quantum Computing study using COMSOL simulation and IBM QISKIT. Awarded the prestigious Galileo Galilei Medal for academic excellence.</p>
+        <div class="project-metrics">
+          <div><span class="project-metric-val">🥇</span><div class="project-metric-label">Medal</div></div>
+          <div><span class="project-metric-val">2022</span><div class="project-metric-label">Year</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GitHub Portfolio -->
+    <div class="project-card project-featured reveal" data-category="web ai">
+      <div class="project-thumb" style="background:linear-gradient(135deg,#f0f4ff,#e0e7ff);">
+        <span class="project-thumb-emoji">🌐</span>
+        <div class="project-overlay">
+          <a href="https://shadmansakibkhan.github.io/ShadmanPortfolio/" target="_blank" class="ov-primary">Live Portfolio</a>
+          <a href="https://github.com/ShadmanSakibKhan" target="_blank" class="ov-secondary">GitHub</a>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-body-header">
+          <h3>Personal Portfolio & GitHub Projects</h3>
+          <span class="tag tag-blue">Open Source</span>
+        </div>
+        <div class="project-tags">
+          <span class="tag tag-blue">HTML/CSS/JS</span>
+          <span class="tag tag-purple">Python</span>
+          <span class="tag tag-gray">Java</span>
+          <span class="tag tag-gray">GitHub Pages</span>
+        </div>
+        <p>Collection of personal and academic projects hosted on GitHub — spanning web development, ML implementations, algorithm solutions, and AI experiments.</p>
+        <div class="project-metrics">
+          <div><span class="project-metric-val">GitHub</span><div class="project-metric-label">Platform</div></div>
+          <div><span class="project-metric-val">Open</span><div class="project-metric-label">Source</div></div>
+          <div><span class="project-metric-val">Active</span><div class="project-metric-label">Status</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /projects-grid -->
+
+  <!-- Social Links section -->
+  <div style="margin-top:64px;padding:40px;background:var(--gray-50);border-radius:var(--radius-xl);border:1px solid var(--gray-100);" class="reveal">
+    <div style="text-align:center;margin-bottom:28px;">
+      <div class="section-label" style="justify-content:center;">Find Me Online</div>
+      <h3 style="font-family:var(--font-display);font-size:1.8rem;font-weight:700;letter-spacing:-0.02em;margin-top:8px;">Social & Professional <span class="gradient-text">links.</span></h3>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+      <a href="https://github.com/ShadmanSakibKhan" target="_blank" class="btn btn-secondary btn-lg" data-magnetic>🐙 GitHub</a>
+      <a href="https://www.linkedin.com/in/shadmansakibkhan97" target="_blank" class="btn btn-secondary btn-lg" data-magnetic>💼 LinkedIn</a>
+      <a href="https://shadmansakibkhan.github.io/ShadmanPortfolio/" target="_blank" class="btn btn-secondary btn-lg" data-magnetic>🌐 Old Portfolio</a>
+      <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0296336" target="_blank" class="btn btn-ghost btn-lg" data-magnetic>📄 PLoS ONE Paper</a>
+      <a href="https://ieeexplore.ieee.org/abstract/document/11022522" target="_blank" class="btn btn-ghost btn-lg" data-magnetic>📄 IEEE Paper</a>
+    </div>
+  </div>
+
+</div>
+
+<footer style="border-top:1px solid var(--gray-100);margin-top:80px;">
+  <div class="footer">
+    <div class="nav-logo"><span class="nav-logo-dot"></span>Shadman Sakib Khan</div>
+    <ul class="footer-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="research.html" target="_blank">Research</a></li>
+      <li><a href="expertise.html" target="_blank">Expertise</a></li>
+      <li><a href="contact.html" target="_blank">Contact</a></li>
+    </ul>
+    <p class="footer-copy">© <span id="footer-year"></span> Shadman Sakib Khan</p>
+  </div>
+</footer>
+
+<script src="../js/global.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    window.initTiltCards('.project-card');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.project-card[data-category]');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        cards.forEach(card => {
+          const cats = card.dataset.category || '';
+          if (filter === 'all' || cats.includes(filter)) {
+            card.style.display = '';
+            card.style.opacity = '0'; card.style.transform = 'translateY(20px)';
+            requestAnimationFrame(() => {
+              card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+              card.style.opacity = '1'; card.style.transform = 'translateY(0)';
+            });
+          } else { card.style.display = 'none'; }
+        });
+      });
+    });
+  });
+</script>
+</body>
+</html>

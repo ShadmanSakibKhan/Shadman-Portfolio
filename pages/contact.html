@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <title>Contact — Shadman Sakib Khan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/global.css">
+  <style>
+    .contact-hero { padding:calc(var(--nav-height) + 60px) clamp(20px,5vw,60px) 60px; max-width:var(--max-width); margin:0 auto; }
+    .contact-grid { display:grid; grid-template-columns:1fr 1.3fr; gap:60px; max-width:var(--max-width); margin:0 auto; padding:0 clamp(20px,5vw,60px) var(--section-pad); }
+    @media(max-width:900px){ .contact-grid{grid-template-columns:1fr;} }
+
+    /* Info Cards */
+    .contact-info-card { background:var(--white); border:1px solid var(--gray-100); border-radius:var(--radius-lg); padding:24px 28px; display:flex; align-items:center; gap:16px; margin-bottom:14px; transition:all var(--transition-normal); cursor:pointer; text-decoration:none; color:inherit; }
+    .contact-info-card:hover { border-color:rgba(79,126,255,0.3); box-shadow:0 4px 20px rgba(79,126,255,0.1); transform:translateX(4px); }
+    .contact-info-icon { width:44px; height:44px; border-radius:var(--radius-md); display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0; }
+    .contact-info-icon.blue { background:rgba(79,126,255,0.1); }
+    .contact-info-icon.purple { background:rgba(122,95,255,0.1); }
+    .contact-info-icon.green { background:rgba(0,200,120,0.1); }
+    .contact-info-icon.orange { background:rgba(255,150,0,0.1); }
+    .contact-info-label { font-size:0.75rem; color:var(--gray-500); font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.08em; }
+    .contact-info-value { font-size:0.95rem; font-weight:600; color:var(--black); margin-top:2px; word-break:break-all; }
+
+    /* AI Command Center */
+    .command-center { background:var(--white); border:1px solid var(--gray-100); border-radius:var(--radius-xl); overflow:hidden; box-shadow:var(--shadow-lg); }
+    .cmd-header { background:var(--gray-50); border-bottom:1px solid var(--gray-100); padding:16px 24px; display:flex; align-items:center; gap:10px; }
+    .cmd-dots { display:flex; gap:6px; }
+    .cmd-dot { width:12px; height:12px; border-radius:50%; }
+    .cmd-dot.red { background:#ff5f57; }
+    .cmd-dot.yellow { background:#febc2e; }
+    .cmd-dot.green { background:#28c840; }
+    .cmd-title { font-family:var(--font-mono); font-size:0.8rem; color:var(--gray-500); margin-left:auto; margin-right:auto; }
+    .cmd-body { padding:28px; }
+    .cmd-field { margin-bottom:20px; }
+    .cmd-label { font-family:var(--font-mono); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--ai-blue); margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+    .cmd-label::before { content:'›'; }
+    .cmd-input, .cmd-textarea { width:100%; background:var(--gray-50); border:1px solid var(--gray-200); border-radius:var(--radius-md); padding:14px 16px; font-family:var(--font-mono); font-size:0.875rem; color:var(--black); outline:none; transition:all var(--transition-normal); resize:none; }
+    .cmd-input:focus, .cmd-textarea:focus { border-color:var(--ai-blue); background:var(--white); box-shadow:0 0 0 3px rgba(79,126,255,0.1); }
+    .cmd-textarea { height:120px; }
+    .cmd-status { font-family:var(--font-mono); font-size:0.75rem; color:var(--gray-500); margin-top:8px; min-height:18px; transition:all 0.3s ease; }
+    .cmd-status.typing { color:var(--ai-blue); }
+    .cmd-status.sending { color:var(--ai-purple); }
+    .cmd-status.success { color:#00aa66; }
+    .cmd-submit { width:100%; padding:14px; background:var(--black); color:var(--white); border:none; border-radius:var(--radius-md); font-family:var(--font-mono); font-size:0.875rem; font-weight:600; letter-spacing:0.05em; cursor:none; transition:all var(--transition-normal); position:relative; overflow:hidden; margin-top:4px; }
+    .cmd-submit::before { content:''; position:absolute; inset:0; background:var(--gradient-blue); opacity:0; transition:opacity var(--transition-normal); }
+    .cmd-submit:hover::before { opacity:1; }
+    .cmd-submit:hover { transform:translateY(-2px); box-shadow:var(--shadow-blue); }
+    .cmd-submit span { position:relative; z-index:1; }
+    .cmd-terminal { background:var(--gray-50); border-radius:var(--radius-md); padding:16px; margin-top:20px; font-family:var(--font-mono); font-size:0.78rem; color:var(--gray-700); min-height:60px; border:1px solid var(--gray-200); }
+    .cmd-terminal-line { margin-bottom:4px; line-height:1.6; }
+    .cmd-terminal-line .prompt { color:var(--ai-blue); }
+    .cmd-terminal-line .value { color:var(--black); }
+    .cmd-cursor { display:inline-block; width:8px; height:14px; background:var(--ai-blue); animation:blink 0.7s ease-in-out infinite; vertical-align:text-bottom; margin-left:2px; }
+
+    /* Social */
+    .social-links { display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
+    .social-link { display:flex; align-items:center; gap:8px; padding:10px 18px; background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius-full); font-size:0.85rem; font-weight:500; color:var(--black); transition:all var(--transition-normal); }
+    .social-link:hover { border-color:var(--ai-blue); color:var(--ai-blue); transform:translateY(-2px); box-shadow:0 4px 14px rgba(79,126,255,0.15); }
+
+    /* Available badge */
+    .availability-badge { display:inline-flex; align-items:center; gap:8px; padding:8px 18px; background:rgba(0,200,120,0.08); border:1px solid rgba(0,200,120,0.2); border-radius:var(--radius-full); font-size:0.85rem; font-weight:500; color:#00aa66; margin-bottom:24px; animation:fadeUp 0.6s 0.2s ease both; }
+    .availability-dot { width:8px; height:8px; background:#00cc77; border-radius:50%; animation:pulseDot 1.5s ease-in-out infinite; }
+  </style>
+</head>
+<body>
+<div class="noise-overlay"></div>
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<div id="scroll-progress"></div>
+<div id="loading-screen">
+  <div class="loading-logo">Contact<span class="gradient-text">.</span></div>
+  <div class="loading-bar-wrap"><div class="loading-bar"></div></div>
+  <div class="loading-pct">0%</div>
+</div>
+
+<nav class="nav">
+  <a href="../index.html" class="nav-logo"><span class="nav-logo-dot"></span>Shadman<span class="gradient-text">.</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="research.html" target="_blank">Research</a></li>
+    <li><a href="projects.html" target="_blank">Projects</a></li>
+    <li><a href="expertise.html" target="_blank">Expertise</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile">
+  <ul>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="research.html" target="_blank">Research</a></li>
+    <li><a href="projects.html" target="_blank">Projects</a></li>
+    <li><a href="expertise.html" target="_blank">Expertise</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</div>
+
+<!-- Hero -->
+<div class="contact-hero">
+  <div class="availability-badge"><div class="availability-dot"></div>Open to opportunities & collaborations</div>
+  <div style="font-family:var(--font-mono);font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ai-blue);margin-bottom:20px;display:flex;align-items:center;gap:8px;animation:fadeUp 0.6s ease both;">
+    <span style="width:20px;height:1.5px;background:var(--ai-blue);border-radius:2px;"></span>Get In Touch
+  </div>
+  <h1 style="font-family:var(--font-display);font-size:clamp(2.5rem,6vw,5rem);font-weight:800;letter-spacing:-0.04em;line-height:1.05;animation:fadeUp 0.6s 0.1s ease both;">
+    Let's build something <span class="gradient-text">great.</span>
+  </h1>
+  <p style="font-size:clamp(1rem,1.8vw,1.15rem);color:var(--gray-500);max-width:560px;line-height:1.75;margin-top:20px;animation:fadeUp 0.6s 0.2s ease both;">
+    Whether you need an AI engineer, ML researcher, or full-stack developer — reach out. Based in Dhaka, Bangladesh. Available remotely worldwide.
+  </p>
+</div>
+
+<div class="divider"></div>
+
+<div class="contact-grid" style="padding-top:60px;">
+  <!-- Left: Info -->
+  <div>
+    <div class="section-label reveal">Contact Details</div>
+    <h2 style="font-family:var(--font-display);font-size:1.8rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:28px;" class="reveal reveal-delay-1">Direct <span class="gradient-text">channels.</span></h2>
+
+    <a href="tel:+8801767702908" class="contact-info-card reveal">
+      <div class="contact-info-icon blue">📱</div>
+      <div>
+        <div class="contact-info-label">Primary Phone</div>
+        <div class="contact-info-value">+880 1767-702908</div>
+      </div>
+    </a>
+    <a href="tel:+8801980301285" class="contact-info-card reveal reveal-delay-1">
+      <div class="contact-info-icon purple">📞</div>
+      <div>
+        <div class="contact-info-label">Secondary Phone</div>
+        <div class="contact-info-value">+880 1980-301285</div>
+      </div>
+    </a>
+    <a href="mailto:hredoykhan523@gmail.com" class="contact-info-card reveal reveal-delay-2">
+      <div class="contact-info-icon green">✉️</div>
+      <div>
+        <div class="contact-info-label">Primary Email</div>
+        <div class="contact-info-value">hredoykhan523@gmail.com</div>
+      </div>
+    </a>
+    <a href="mailto:shadman.khan10@northsouth.edu" class="contact-info-card reveal reveal-delay-3">
+      <div class="contact-info-icon orange">🎓</div>
+      <div>
+        <div class="contact-info-label">University Email</div>
+        <div class="contact-info-value">shadman.khan10@northsouth.edu</div>
+      </div>
+    </a>
+    <div class="contact-info-card reveal" style="cursor:default;">
+      <div class="contact-info-icon blue">📍</div>
+      <div>
+        <div class="contact-info-label">Present Address</div>
+        <div class="contact-info-value">Flat 4B, 763 Moon Terrace, Mirpur 2, Dhaka-1216, Bangladesh</div>
+      </div>
+    </div>
+
+    <div style="margin-top:28px;" class="reveal">
+      <div style="font-family:var(--font-mono);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gray-500);margin-bottom:12px;">Social & Professional</div>
+      <div class="social-links">
+        <a href="https://github.com/ShadmanSakibKhan" target="_blank" class="social-link">🐙 GitHub</a>
+        <a href="https://www.linkedin.com/in/shadmansakibkhan97" target="_blank" class="social-link">💼 LinkedIn</a>
+        <a href="https://twitter.com/shadmansakib97" target="_blank" class="social-link">🐦 Twitter</a>
+        <a href="https://shadmansakibkhan.github.io/ShadmanPortfolio/" target="_blank" class="social-link">🌐 Portfolio</a>
+        <a href="https://wa.me/8801767702908" target="_blank" class="social-link">💬 WhatsApp</a>
+        <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0296336" target="_blank" class="social-link">📄 PLoS ONE</a>
+        <a href="https://ieeexplore.ieee.org/abstract/document/11022522" target="_blank" class="social-link">📄 IEEE</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: AI Command Center -->
+  <div class="reveal reveal-delay-1">
+    <div class="section-label">AI Command Center</div>
+    <h2 style="font-family:var(--font-display);font-size:1.8rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:24px;">Send a <span class="gradient-text">message.</span></h2>
+
+    <div class="command-center">
+      <div class="cmd-header">
+        <div class="cmd-dots">
+          <div class="cmd-dot red"></div>
+          <div class="cmd-dot yellow"></div>
+          <div class="cmd-dot green"></div>
+        </div>
+        <div class="cmd-title">// AI Command Center — shadman.contact.sh</div>
+      </div>
+      <div class="cmd-body">
+        <div class="cmd-terminal" id="cmd-terminal">
+          <div class="cmd-terminal-line"><span class="prompt">$</span> <span class="value">Initializing secure channel...</span></div>
+          <div class="cmd-terminal-line"><span class="prompt">$</span> <span class="value">Connected to Shadman Sakib Khan ✓</span></div>
+          <div class="cmd-terminal-line"><span class="prompt">$</span> <span class="value">Ready to receive your message<span class="cmd-cursor"></span></span></div>
+        </div>
+
+        <form id="contact-form" style="margin-top:20px;" onsubmit="handleSubmit(event)">
+          <div class="cmd-field">
+            <div class="cmd-label">Your Name</div>
+            <input type="text" id="name" class="cmd-input" placeholder="Enter your name..." autocomplete="name" required>
+          </div>
+          <div class="cmd-field">
+            <div class="cmd-label">Email Address</div>
+            <input type="email" id="email" class="cmd-input" placeholder="your@email.com" autocomplete="email" required>
+          </div>
+          <div class="cmd-field">
+            <div class="cmd-label">Subject</div>
+            <input type="text" id="subject" class="cmd-input" placeholder="What's this about?" required>
+          </div>
+          <div class="cmd-field">
+            <div class="cmd-label">Message</div>
+            <textarea id="message" class="cmd-textarea" placeholder="Describe your project, collaboration idea, or opportunity..." required></textarea>
+            <div class="cmd-status" id="cmd-status"></div>
+          </div>
+          <button type="submit" class="cmd-submit" data-magnetic>
+            <span id="btn-text">⚡ SEND MESSAGE</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div style="display:flex;gap:12px;margin-top:16px;flex-wrap:wrap;">
+      <a href="https://wa.me/8801767702908" target="_blank" class="btn btn-ghost" style="flex:1;justify-content:center;" data-magnetic>💬 WhatsApp</a>
+      <a href="mailto:hredoykhan523@gmail.com" class="btn btn-secondary" style="flex:1;justify-content:center;" data-magnetic>✉️ Email Direct</a>
+    </div>
+  </div>
+</div>
+
+<!-- Map / Location -->
+<div style="max-width:var(--max-width);margin:0 auto;padding:0 clamp(20px,5vw,60px) var(--section-pad);">
+  <div style="background:var(--gray-50);border:1px solid var(--gray-100);border-radius:var(--radius-xl);padding:40px;text-align:center;" class="reveal">
+    <div style="font-size:3rem;margin-bottom:16px;">📍</div>
+    <h3 style="font-family:var(--font-display);font-weight:700;font-size:1.3rem;letter-spacing:-0.02em;">Based in Dhaka, Bangladesh</h3>
+    <p style="color:var(--gray-500);margin-top:8px;font-size:0.95rem;">Available for remote work worldwide · Open to relocation for the right opportunity</p>
+    <div style="display:flex;justify-content:center;gap:12px;margin-top:20px;flex-wrap:wrap;">
+      <span class="tag tag-blue">🕐 GMT+6</span>
+      <span class="tag tag-purple">🌏 Remote Friendly</span>
+      <span class="tag tag-gray">✈️ Open to Relocation</span>
+      <span class="tag tag-gray">💼 Full-time / Freelance</span>
+    </div>
+  </div>
+</div>
+
+<footer style="border-top:1px solid var(--gray-100);">
+  <div class="footer">
+    <div>
+      <div class="nav-logo" style="margin-bottom:6px;"><span class="nav-logo-dot"></span>Shadman Sakib Khan</div>
+      <p class="footer-copy">AI Engineer · Researcher · Full Stack Dev · Dhaka, Bangladesh</p>
+    </div>
+    <ul class="footer-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="research.html" target="_blank">Research</a></li>
+      <li><a href="projects.html" target="_blank">Projects</a></li>
+      <li><a href="expertise.html" target="_blank">Expertise</a></li>
+    </ul>
+    <p class="footer-copy">© <span id="footer-year"></span> Shadman Sakib Khan</p>
+  </div>
+</footer>
+
+<script src="../js/global.js"></script>
+<script>
+// Form typing terminal
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+const subjectInput = document.getElementById('subject');
+const msgInput = document.getElementById('message');
+const terminal = document.getElementById('cmd-terminal');
+const status = document.getElementById('cmd-status');
+
+function addTerminalLine(prompt, text) {
+  const line = document.createElement('div');
+  line.className = 'cmd-terminal-line';
+  line.innerHTML = `<span class="prompt">${prompt}</span> <span class="value">${text}</span>`;
+  terminal.appendChild(line);
+  terminal.scrollTop = terminal.scrollHeight;
+  // Keep max 6 lines
+  while(terminal.children.length > 6) terminal.removeChild(terminal.firstChild);
+}
+
+nameInput.addEventListener('input', () => {
+  if(nameInput.value.length === 1) addTerminalLine('$', `name = "${nameInput.value}..."`);
+  status.textContent = `[ FIELD: name ] Input detected...`;
+  status.className = 'cmd-status typing';
+});
+emailInput.addEventListener('input', () => {
+  status.textContent = `[ FIELD: email ] Validating format...`;
+  status.className = 'cmd-status typing';
+});
+subjectInput.addEventListener('input', () => {
+  status.textContent = `[ FIELD: subject ] "${subjectInput.value}"`;
+  status.className = 'cmd-status typing';
+});
+msgInput.addEventListener('input', () => {
+  const wc = msgInput.value.trim().split(/\s+/).filter(Boolean).length;
+  status.textContent = `[ FIELD: message ] ${wc} word${wc!==1?'s':''} · ${msgInput.value.length} chars`;
+  status.className = 'cmd-status typing';
+});
+
+function handleSubmit(e) {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const subject = document.getElementById('subject').value;
+  const message = document.getElementById('message').value;
+  const btn = document.getElementById('btn-text');
+
+  btn.textContent = '⏳ TRANSMITTING...';
+  status.textContent = '[ STATUS ] Encrypting & sending message...';
+  status.className = 'cmd-status sending';
+
+  addTerminalLine('$', `Sending from: ${email}`);
+  addTerminalLine('$', `Subject: "${subject}"`);
+
+  setTimeout(() => {
+    addTerminalLine('✓', `Message delivered to Shadman!`);
+    btn.textContent = '✅ MESSAGE SENT';
+    status.textContent = '[ STATUS ] Message delivered successfully!';
+    status.className = 'cmd-status success';
+
+    // Open mailto as fallback
+    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+    window.location.href = `mailto:hredoykhan523@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    setTimeout(() => { btn.textContent = '⚡ SEND MESSAGE'; }, 3000);
+  }, 1600);
+}
+</script>
+</body>
+</html>

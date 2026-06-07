@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <title>Expertise — Shadman Sakib Khan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/global.css">
+  <style>
+    .expertise-hero { padding:calc(var(--nav-height) + 60px) clamp(20px,5vw,60px) 80px; max-width:var(--max-width); margin:0 auto; }
+    .skill-category { margin-bottom:48px; }
+    .skill-category-header { display:flex;align-items:center;gap:12px;margin-bottom:20px; }
+    .skill-cat-icon { width:40px;height:40px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:1.1rem; }
+    .skill-cat-icon.blue { background:rgba(79,126,255,0.1); }
+    .skill-cat-icon.purple { background:rgba(122,95,255,0.1); }
+    .skill-cat-icon.green { background:rgba(0,200,120,0.1); }
+    .skill-cat-icon.orange { background:rgba(255,150,0,0.1); }
+    .skill-cat-icon.red { background:rgba(255,80,80,0.1); }
+    .skill-category-header h3 { font-family:var(--font-display);font-size:1.1rem;font-weight:700;letter-spacing:-0.02em; }
+    .skills-row { display:flex;flex-wrap:wrap;gap:10px; }
+    .skill-pill { display:inline-flex;align-items:center;gap:8px;padding:10px 18px;background:var(--white);border:1px solid var(--gray-100);border-radius:var(--radius-full);font-size:0.875rem;font-weight:500;color:var(--black);box-shadow:var(--shadow-sm);transition:all var(--transition-normal);cursor:default; }
+    .skill-pill:hover { border-color:var(--ai-blue);color:var(--ai-blue);transform:translateY(-2px);box-shadow:0 4px 16px rgba(79,126,255,0.15); }
+    .timeline { position:relative;margin-top:48px;padding-left:32px; }
+    .timeline::before { content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--ai-blue),var(--ai-purple),transparent);border-radius:2px; }
+    .timeline-item { position:relative;margin-bottom:44px;padding-left:32px; }
+    .timeline-dot { position:absolute;left:-39px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--white);border:2px solid var(--ai-blue);box-shadow:0 0 0 4px rgba(79,126,255,0.1); }
+    .timeline-year { font-family:var(--font-mono);font-size:0.75rem;color:var(--ai-blue);font-weight:600;letter-spacing:0.08em;margin-bottom:6px; }
+    .timeline-item h3 { font-family:var(--font-display);font-size:1.15rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:4px; }
+    .timeline-item .role { font-size:0.875rem;color:var(--ai-blue);font-weight:500;margin-bottom:8px; }
+    .timeline-item p { font-size:0.875rem;color:var(--gray-500);line-height:1.7;max-width:600px; }
+    #orbit-canvas { width:100%;height:480px;border-radius:var(--radius-xl);background:var(--white);border:1px solid var(--gray-100);margin-top:40px; }
+    #neural-canvas { width:100%;height:360px;border-radius:var(--radius-xl);background:var(--white);border:1px solid var(--gray-100);margin-top:40px;cursor:crosshair; }
+    .lang-card { background:var(--white);border:1px solid var(--gray-100);border-radius:var(--radius-lg);padding:24px;transition:all var(--transition-normal); }
+    .lang-card:hover { box-shadow:var(--shadow-md);transform:translateY(-3px); }
+    .lang-level { height:4px;background:var(--gray-100);border-radius:2px;margin-top:10px;overflow:hidden; }
+    .lang-level-fill { height:100%;background:var(--gradient-blue);border-radius:2px;transition:width 1.2s cubic-bezier(0.4,0,0.2,1); }
+  </style>
+</head>
+<body>
+<div class="noise-overlay"></div>
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<div id="scroll-progress"></div>
+<div id="loading-screen">
+  <div class="loading-logo">Expertise<span class="gradient-text">.</span></div>
+  <div class="loading-bar-wrap"><div class="loading-bar"></div></div>
+  <div class="loading-pct">0%</div>
+</div>
+
+<nav class="nav">
+  <a href="../index.html" class="nav-logo"><span class="nav-logo-dot"></span>Shadman<span class="gradient-text">.</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="research.html" target="_blank">Research</a></li>
+    <li><a href="projects.html" target="_blank">Projects</a></li>
+    <li><a href="expertise.html" class="active">Expertise</a></li>
+    <li><a href="contact.html" target="_blank">Contact</a></li>
+  </ul>
+  <div class="nav-cta"><a href="contact.html" target="_blank" class="btn btn-primary" data-magnetic>Hire Me</a></div>
+  <button class="nav-hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile">
+  <ul>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="research.html" target="_blank">Research</a></li>
+    <li><a href="projects.html" target="_blank">Projects</a></li>
+    <li><a href="expertise.html">Expertise</a></li>
+    <li><a href="contact.html" target="_blank">Contact</a></li>
+  </ul>
+</div>
+
+<!-- Hero -->
+<div class="expertise-hero">
+  <div style="font-family:var(--font-mono);font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ai-blue);margin-bottom:20px;display:flex;align-items:center;gap:8px;animation:fadeUp 0.6s ease both;">
+    <span style="width:20px;height:1.5px;background:var(--ai-blue);border-radius:2px;"></span>Skills & Education
+  </div>
+  <h1 style="font-family:var(--font-display);font-size:clamp(2.5rem,6vw,5.5rem);font-weight:800;letter-spacing:-0.04em;line-height:1.05;animation:fadeUp 0.6s 0.1s ease both;">
+    Built to <span class="gradient-text">engineer</span><br>the future.
+  </h1>
+  <p style="font-size:clamp(1rem,1.8vw,1.15rem);color:var(--gray-500);max-width:580px;line-height:1.75;margin-top:20px;animation:fadeUp 0.6s 0.2s ease both;">
+    BSc CSE (AI Major) from NSU. Skilled in Python, ML/DL frameworks, web technologies, and multiple programming languages. Curious, adaptive, always learning.
+  </p>
+</div>
+
+<div class="divider"></div>
+
+<!-- Neural Viz -->
+<section style="padding:var(--section-pad) 0;background:var(--gray-50);overflow:hidden;">
+  <div style="max-width:var(--max-width);margin:0 auto;padding:0 clamp(20px,5vw,60px);">
+    <div class="section-label reveal">AI Capabilities</div>
+    <h2 class="section-title reveal reveal-delay-1">Neural <span class="gradient-text">expertise map.</span></h2>
+    <p class="section-subtitle reveal reveal-delay-2">Hover over nodes to explore. Move your cursor to interact with the network.</p>
+    <canvas id="neural-canvas"></canvas>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Skills -->
+<section style="padding:var(--section-pad) clamp(20px,5vw,60px);">
+  <div style="max-width:var(--max-width);margin:0 auto;">
+    <div class="section-label reveal">Technical Stack</div>
+    <h2 class="section-title reveal reveal-delay-1">Every skill in the <span class="gradient-text">arsenal.</span></h2>
+
+    <div class="skill-category mt-48 reveal">
+      <div class="skill-category-header">
+        <div class="skill-cat-icon blue">🧠</div>
+        <h3>Artificial Intelligence & Machine Learning</h3>
+      </div>
+      <div class="skills-row">
+        <div class="skill-pill">Machine Learning</div>
+        <div class="skill-pill">Deep Learning / Neural Networks</div>
+        <div class="skill-pill">Natural Language Processing</div>
+        <div class="skill-pill">Computer Vision</div>
+        <div class="skill-pill">Generative AI</div>
+        <div class="skill-pill">Transfer Learning</div>
+        <div class="skill-pill">Knowledge Distillation</div>
+        <div class="skill-pill">Predictive Modeling</div>
+        <div class="skill-pill">Google Colab</div>
+        <div class="skill-pill">Anaconda</div>
+        <div class="skill-pill">PyCharm</div>
+        <div class="skill-pill">IBM QISKIT</div>
+      </div>
+    </div>
+
+    <div class="skill-category reveal">
+      <div class="skill-category-header">
+        <div class="skill-cat-icon purple">💻</div>
+        <h3>Programming Languages</h3>
+      </div>
+      <div class="skills-row">
+        <div class="skill-pill">Python</div>
+        <div class="skill-pill">Java</div>
+        <div class="skill-pill">C</div>
+        <div class="skill-pill">C++</div>
+        <div class="skill-pill">HTML</div>
+        <div class="skill-pill">CSS</div>
+        <div class="skill-pill">JavaScript</div>
+      </div>
+    </div>
+
+    <div class="skill-category reveal">
+      <div class="skill-category-header">
+        <div class="skill-cat-icon green">🌐</div>
+        <h3>Web & App Development</h3>
+      </div>
+      <div class="skills-row">
+        <div class="skill-pill">HTML5</div>
+        <div class="skill-pill">CSS3</div>
+        <div class="skill-pill">JavaScript (ES6+)</div>
+        <div class="skill-pill">Responsive Design</div>
+        <div class="skill-pill">Java App Development</div>
+        <div class="skill-pill">Visual Studio Code</div>
+        <div class="skill-pill">Git / GitHub</div>
+        <div class="skill-pill">Bitbucket</div>
+      </div>
+    </div>
+
+    <div class="skill-category reveal">
+      <div class="skill-category-header">
+        <div class="skill-cat-icon orange">🛠️</div>
+        <h3>Software & Tools</h3>
+      </div>
+      <div class="skills-row">
+        <div class="skill-pill">Code::Blocks</div>
+        <div class="skill-pill">Eclipse</div>
+        <div class="skill-pill">NetBeans</div>
+        <div class="skill-pill">CISCO Packet Tracer</div>
+        <div class="skill-pill">FileZilla</div>
+        <div class="skill-pill">Wireshark</div>
+        <div class="skill-pill">Microsoft Office</div>
+        <div class="skill-pill">Adobe Photoshop</div>
+        <div class="skill-pill">Adobe Illustrator</div>
+        <div class="skill-pill">Adobe Premiere Pro</div>
+        <div class="skill-pill">COMSOL</div>
+        <div class="skill-pill">Windows OS</div>
+      </div>
+    </div>
+
+    <div class="skill-category reveal">
+      <div class="skill-category-header">
+        <div class="skill-cat-icon red">🤝</div>
+        <h3>Soft Skills</h3>
+      </div>
+      <div class="skills-row">
+        <div class="skill-pill">Team Leadership</div>
+        <div class="skill-pill">Public Speaking</div>
+        <div class="skill-pill">Problem Solving</div>
+        <div class="skill-pill">Critical Thinking</div>
+        <div class="skill-pill">Analytical Thinking</div>
+        <div class="skill-pill">Customer Service</div>
+        <div class="skill-pill">Creative Writing</div>
+        <div class="skill-pill">Quick Learner</div>
+        <div class="skill-pill">Adaptability</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Tech Universe -->
+<section style="padding:var(--section-pad) clamp(20px,5vw,60px);background:var(--gray-50);overflow:hidden;">
+  <div style="max-width:var(--max-width);margin:0 auto;">
+    <div class="section-label reveal">Tech Universe</div>
+    <h2 class="section-title reveal reveal-delay-1">Technologies in <span class="gradient-text">orbit.</span></h2>
+    <p class="section-subtitle reveal reveal-delay-2">An interactive visualization of my tech stack. Watch them orbit the AI core.</p>
+    <canvas id="orbit-canvas"></canvas>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Education Timeline -->
+<section style="padding:var(--section-pad) clamp(20px,5vw,60px);">
+  <div style="max-width:var(--max-width);margin:0 auto;">
+    <div class="section-label reveal">Education</div>
+    <h2 class="section-title reveal reveal-delay-1">The academic <span class="gradient-text">journey.</span></h2>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2019 — Sept 2023</div>
+        <h3>BSc in Computer Science & Engineering</h3>
+        <div class="role">North South University · Major: Artificial Intelligence · CGPA: 3.58/4.00 (~89%)</div>
+        <p>Graduated with Cum Laude distinction. Major in Artificial Intelligence. Active in NSU Computer Club, ACM Student Chapter, IEEE PES Student Branch, and NSUSS cultural society.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;">
+          <span class="tag tag-blue">Cum Laude</span><span class="tag tag-purple">AI Major</span><span class="tag tag-gray">Merit Scholarship 25%</span><span class="tag tag-gray">CGPA 3.58</span>
+        </div>
+      </div>
+      <div class="timeline-item reveal reveal-delay-1">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">23rd July 2017</div>
+        <h3>Higher Secondary Certificate (HSC)</h3>
+        <div class="role">BCIC College, Mirpur, Dhaka · Science · GPA 5.00/5.00 (~88%)</div>
+        <p>Perfect GPA in Science group. Strong foundation in Physics, Chemistry, Mathematics, and Biology.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;"><span class="tag tag-blue">GPA 5.00/5.00</span><span class="tag tag-gray">Science</span><span class="tag tag-gray">Dhaka Board</span></div>
+      </div>
+      <div class="timeline-item reveal reveal-delay-2">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">30th May 2015</div>
+        <h3>Secondary School Certificate (SSC)</h3>
+        <div class="role">Monipur High School & College, Mirpur · Science · GPA 4.94/5.00 (~78%)</div>
+        <p>Excellent performance across Science subjects. Foundation in mathematics and analytical thinking.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;"><span class="tag tag-blue">GPA 4.94/5.00</span><span class="tag tag-gray">Science</span></div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">27th Dec 2012</div>
+        <h3>Junior School Certificate (JSC)</h3>
+        <div class="role">Monipur High School & College, Mirpur · GPA 5.00/5.00 (~89%)</div>
+        <p>Perfect GPA, demonstrating consistent academic excellence from early education.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;"><span class="tag tag-blue">GPA 5.00/5.00</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Language Skills -->
+<section style="padding:var(--section-pad) clamp(20px,5vw,60px);background:var(--gray-50);">
+  <div style="max-width:var(--max-width);margin:0 auto;">
+    <div class="section-label reveal">Languages</div>
+    <h2 class="section-title reveal reveal-delay-1">Communication <span class="gradient-text">skills.</span></h2>
+    <div class="grid-4 mt-48">
+      <div class="lang-card reveal">
+        <div style="font-size:1.5rem;margin-bottom:8px;">🇧🇩</div>
+        <h3 style="font-family:var(--font-display);font-weight:700;font-size:1.1rem;">Bengali</h3>
+        <p style="font-size:0.85rem;color:var(--gray-500);margin-top:4px;">Native Language</p>
+        <div class="lang-level"><div class="lang-level-fill" style="width:100%"></div></div>
+        <p style="font-size:0.8rem;color:var(--ai-blue);margin-top:8px;font-family:var(--font-mono);">Fluent — Read, Write, Speak, Listen</p>
+      </div>
+      <div class="lang-card reveal reveal-delay-1">
+        <div style="font-size:1.5rem;margin-bottom:8px;">🇬🇧</div>
+        <h3 style="font-family:var(--font-display);font-weight:700;font-size:1.1rem;">English</h3>
+        <p style="font-size:0.85rem;color:var(--gray-500);margin-top:4px;">Professional Proficiency</p>
+        <div class="lang-level"><div class="lang-level-fill" style="width:92%"></div></div>
+        <p style="font-size:0.8rem;color:var(--ai-blue);margin-top:8px;font-family:var(--font-mono);">Fluent — Read, Write, Speak, Listen</p>
+      </div>
+      <div class="lang-card reveal reveal-delay-2">
+        <div style="font-size:1.5rem;margin-bottom:8px;">🇮🇳</div>
+        <h3 style="font-family:var(--font-display);font-weight:700;font-size:1.1rem;">Hindi & Urdu</h3>
+        <p style="font-size:0.85rem;color:var(--gray-500);margin-top:4px;">Conversational</p>
+        <div class="lang-level"><div class="lang-level-fill" style="width:60%"></div></div>
+        <p style="font-size:0.8rem;color:var(--ai-blue);margin-top:8px;font-family:var(--font-mono);">Medium — Speak & Listen</p>
+      </div>
+      <div class="lang-card reveal reveal-delay-3">
+        <div style="font-size:1.5rem;margin-bottom:8px;">🇯🇵</div>
+        <h3 style="font-family:var(--font-display);font-weight:700;font-size:1.1rem;">Japanese</h3>
+        <p style="font-size:0.85rem;color:var(--gray-500);margin-top:4px;">Basic (BMEET Certified)</p>
+        <div class="lang-level"><div class="lang-level-fill" style="width:25%"></div></div>
+        <p style="font-size:0.8rem;color:var(--ai-blue);margin-top:8px;font-family:var(--font-mono);">Basic — Speak & Listen</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="border-top:1px solid var(--gray-100);">
+  <div class="footer">
+    <div class="nav-logo"><span class="nav-logo-dot"></span>Shadman Sakib Khan</div>
+    <ul class="footer-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="research.html" target="_blank">Research</a></li>
+      <li><a href="projects.html" target="_blank">Projects</a></li>
+      <li><a href="contact.html" target="_blank">Contact</a></li>
+    </ul>
+    <p class="footer-copy">© <span id="footer-year"></span> Shadman Sakib Khan</p>
+  </div>
+</footer>
+
+<script src="../js/global.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Neural Network Canvas
+  const nc = document.getElementById('neural-canvas');
+  if (nc) {
+    const ctx = nc.getContext('2d');
+    let W, H, nodes = [], mouse = {x:-9999,y:-9999}, frame = 0;
+    const layers = [
+      {label:'Input',nodes:['Text','Image','Data','Code'],color:'79,126,255'},
+      {label:'Hidden 1',nodes:['Feature','Extract','Process','Embed'],color:'122,95,255'},
+      {label:'Hidden 2',nodes:['Reason','Transform','Attend','Learn'],color:'0,200,180'},
+      {label:'Output',nodes:['Predict','Generate','Classify','Act'],color:'79,200,120'}
+    ];
+    function resize() { W=nc.width=nc.offsetWidth; H=nc.height=nc.offsetHeight; buildNodes(); }
+    function buildNodes() {
+      nodes=[];
+      layers.forEach((layer,li) => {
+        const x = W*(0.13+li*0.24);
+        layer.nodes.forEach((name,ni) => {
+          nodes.push({x,y:H/(layer.nodes.length+1)*(ni+1),label:name,layer:li,color:layer.color,r:22,pulse:Math.random()*Math.PI*2});
+        });
+      });
+    }
+    let hov=null;
+    nc.addEventListener('mousemove',e=>{const r=nc.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;hov=nodes.find(n=>Math.hypot(n.x-mouse.x,n.y-mouse.y)<n.r+10)||null;});
+    nc.addEventListener('mouseleave',()=>{mouse.x=-9999;hov=null;});
+    function draw() {
+      ctx.clearRect(0,0,W,H); frame++;
+      for(let i=0;i<nodes.length;i++) for(let j=0;j<nodes.length;j++) {
+        if(nodes[j].layer===nodes[i].layer+1) {
+          const p=Math.sin(frame*0.02+nodes[i].pulse)*0.5+0.5;
+          const isA=hov&&(hov===nodes[i]||hov===nodes[j]);
+          ctx.beginPath(); ctx.moveTo(nodes[i].x,nodes[i].y); ctx.lineTo(nodes[j].x,nodes[j].y);
+          ctx.strokeStyle=isA?`rgba(79,126,255,${0.4+p*0.4})`:`rgba(180,190,220,${0.12+p*0.06})`;
+          ctx.lineWidth=isA?2:1; ctx.stroke();
+        }
+      }
+      nodes.forEach(n => {
+        const p=Math.sin(frame*0.025+n.pulse)*0.5+0.5; const isH=hov===n; const r=isH?n.r*1.3:n.r;
+        if(isH){const g=ctx.createRadialGradient(n.x,n.y,0,n.x,n.y,r*2.5);g.addColorStop(0,`rgba(${n.color},0.2)`);g.addColorStop(1,`rgba(${n.color},0)`);ctx.beginPath();ctx.arc(n.x,n.y,r*2.5,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();}
+        ctx.beginPath(); ctx.arc(n.x,n.y,r,0,Math.PI*2);
+        ctx.fillStyle=`rgba(${n.color},${isH?0.2:0.08+p*0.04})`; ctx.fill();
+        ctx.strokeStyle=`rgba(${n.color},${isH?1:0.5+p*0.3})`; ctx.lineWidth=isH?2:1.5; ctx.stroke();
+        ctx.font=`${isH?'600':'500'} 11px 'DM Sans',sans-serif`; ctx.fillStyle=`rgba(${n.color},${isH?1:0.8})`;
+        ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillText(n.label,n.x,n.y);
+      });
+      layers.forEach((l,li)=>{
+        ctx.font="11px 'JetBrains Mono',monospace"; ctx.fillStyle='rgba(150,150,170,0.5)';
+        ctx.textAlign='center'; ctx.fillText(l.label,W*(0.13+li*0.24),H-14);
+      });
+      requestAnimationFrame(draw);
+    }
+    window.addEventListener('resize',resize); resize(); draw();
+  }
+
+  // Orbital Canvas
+  const oc = document.getElementById('orbit-canvas');
+  if (oc) {
+    const ctx = oc.getContext('2d');
+    let W, H, frame=0;
+    const techs=[
+      {name:'Python',emoji:'🐍',r:85,speed:0.013,angle:0,color:'55,118,171'},
+      {name:'HTML/CSS',emoji:'🌐',r:130,speed:0.009,angle:1.2,color:'228,77,38'},
+      {name:'JavaScript',emoji:'⚡',r:175,speed:0.007,angle:2.5,color:'240,219,79'},
+      {name:'Java',emoji:'☕',r:215,speed:0.0055,angle:0.8,color:'237,121,20'},
+      {name:'PyTorch',emoji:'🔥',r:100,speed:0.011,angle:3.5,color:'238,76,44'},
+      {name:'ML/DL',emoji:'🧠',r:155,speed:0.008,angle:5,color:'122,95,255'},
+      {name:'Git',emoji:'🐙',r:195,speed:0.006,angle:4.2,color:'241,80,47'},
+      {name:'Google Colab',emoji:'📓',r:245,speed:0.004,angle:1.8,color:'245,180,0'},
+    ];
+    function resize() { W=oc.width=oc.offsetWidth; H=oc.height=oc.offsetHeight; }
+    function draw() {
+      ctx.clearRect(0,0,W,H); frame++;
+      const cx=W/2, cy=H/2;
+      // Core glow
+      const cg=ctx.createRadialGradient(cx,cy,0,cx,cy,55);
+      cg.addColorStop(0,'rgba(79,126,255,0.3)'); cg.addColorStop(0.5,'rgba(122,95,255,0.15)'); cg.addColorStop(1,'rgba(79,126,255,0)');
+      ctx.beginPath(); ctx.arc(cx,cy,55,0,Math.PI*2); ctx.fillStyle=cg; ctx.fill();
+      ctx.beginPath(); ctx.arc(cx,cy,38,0,Math.PI*2);
+      ctx.fillStyle='rgba(79,126,255,0.1)'; ctx.fill();
+      ctx.strokeStyle='rgba(79,126,255,0.5)'; ctx.lineWidth=2; ctx.stroke();
+      ctx.font="700 12px 'Syne',sans-serif"; ctx.fillStyle='rgba(79,126,255,0.9)';
+      ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillText('AI',cx,cy);
+      techs.forEach(t => {
+        ctx.beginPath(); ctx.arc(cx,cy,t.r,0,Math.PI*2);
+        ctx.strokeStyle=`rgba(${t.color},0.07)`; ctx.lineWidth=1;
+        ctx.setLineDash([4,8]); ctx.stroke(); ctx.setLineDash([]);
+        t.angle += t.speed;
+        const px=cx+Math.cos(t.angle)*t.r, py=cy+Math.sin(t.angle)*t.r;
+        const gr=ctx.createRadialGradient(px,py,0,px,py,20);
+        gr.addColorStop(0,`rgba(${t.color},0.25)`); gr.addColorStop(1,`rgba(${t.color},0)`);
+        ctx.beginPath(); ctx.arc(px,py,20,0,Math.PI*2); ctx.fillStyle=gr; ctx.fill();
+        ctx.beginPath(); ctx.arc(px,py,15,0,Math.PI*2);
+        ctx.fillStyle=`rgba(${t.color},0.1)`; ctx.fill();
+        ctx.strokeStyle=`rgba(${t.color},0.6)`; ctx.lineWidth=1.5; ctx.stroke();
+        ctx.font='14px serif'; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillText(t.emoji,px,py);
+        ctx.font="500 10px 'DM Sans',sans-serif"; ctx.fillStyle='rgba(80,80,100,0.8)'; ctx.fillText(t.name,px,py+23);
+      });
+      requestAnimationFrame(draw);
+    }
+    window.addEventListener('resize', resize); resize(); draw();
+  }
+});
+</script>
+</body>
+</html>

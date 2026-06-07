@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Research publications by Shadman Sakib Khan — IEEE, PLoS ONE, AI/ML papers.">
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <title>Research — Shadman Sakib Khan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/research.css">
+</head>
+<body>
+<div class="noise-overlay"></div>
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<div id="scroll-progress"></div>
+<div id="loading-screen">
+  <div class="loading-logo">Research<span class="gradient-text">.</span></div>
+  <div class="loading-bar-wrap"><div class="loading-bar"></div></div>
+  <div class="loading-pct">0%</div>
+</div>
+
+<nav class="nav">
+  <a href="../index.html" class="nav-logo"><span class="nav-logo-dot"></span>Shadman<span class="gradient-text">.</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="research.html" class="active">Research</a></li>
+    <li><a href="projects.html" target="_blank">Projects</a></li>
+    <li><a href="expertise.html" target="_blank">Expertise</a></li>
+    <li><a href="contact.html" target="_blank">Contact</a></li>
+  </ul>
+  <div class="nav-cta"><a href="contact.html" target="_blank" class="btn btn-primary" data-magnetic>Collaborate</a></div>
+  <button class="nav-hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile">
+  <ul>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="projects.html" target="_blank">Projects</a></li>
+    <li><a href="expertise.html" target="_blank">Expertise</a></li>
+    <li><a href="contact.html" target="_blank">Contact</a></li>
+  </ul>
+</div>
+
+<!-- Hero -->
+<div style="max-width:var(--max-width);margin:0 auto;padding:calc(var(--nav-height) + 60px) clamp(20px,5vw,60px) 80px;">
+  <div style="font-family:var(--font-mono);font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ai-blue);margin-bottom:20px;display:flex;align-items:center;gap:8px;animation:fadeUp 0.6s ease both;">
+    <span style="width:20px;height:1.5px;background:var(--ai-blue);border-radius:2px;"></span>Research Laboratory
+  </div>
+  <h1 style="font-family:var(--font-display);font-size:clamp(2.5rem,6vw,5.5rem);font-weight:800;letter-spacing:-0.04em;line-height:1.05;animation:fadeUp 0.6s 0.1s ease both;">
+    Published <span class="gradient-text">AI Research.</span>
+  </h1>
+  <p style="font-size:clamp(1rem,1.8vw,1.15rem);color:var(--gray-500);max-width:640px;line-height:1.75;margin-top:20px;animation:fadeUp 0.6s 0.2s ease both;">
+    Research spanning Machine Learning, Deep Learning, Computer Vision, and NLP — published in top-tier Q1 journals and IEEE international conferences.
+  </p>
+
+  <div class="research-stats-bar">
+    <div class="research-stat"><span class="research-stat-num" data-counter="2" data-suffix="">0</span><div class="research-stat-label">Publications</div></div>
+    <div class="research-stat"><span class="research-stat-num" data-counter="2" data-suffix="">0</span><div class="research-stat-label">Conferences/Journals</div></div>
+    <div class="research-stat"><span class="research-stat-num" data-counter="1" data-suffix="">0</span><div class="research-stat-label">Q1 Journal</div></div>
+    <div class="research-stat"><span class="research-stat-num" data-counter="1" data-suffix="">0</span><div class="research-stat-label">IEEE Paper</div></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- Research Areas -->
+<section class="research-areas">
+  <div class="research-areas-inner">
+    <div class="section-label reveal">Areas of Interest</div>
+    <h2 class="section-title reveal reveal-delay-1">What I <span class="gradient-text">investigate.</span></h2>
+    <div class="area-cards">
+      <div class="area-card reveal">
+        <span class="area-icon">🤖</span>
+        <h3>Machine Learning</h3>
+        <p>Predictive modeling, classification, feature engineering, and applying ML algorithms to real-world behavioral data and social media analytics.</p>
+        <div class="area-tags"><span class="tag tag-blue">Scikit-learn</span><span class="tag tag-purple">XGBoost</span><span class="tag tag-gray">Behavioral AI</span></div>
+      </div>
+      <div class="area-card reveal reveal-delay-1">
+        <span class="area-icon">👁️</span>
+        <h3>Computer Vision</h3>
+        <p>Deepfake detection, image classification, transfer learning with CNNs, and knowledge distillation for mobile/smartphone deployment.</p>
+        <div class="area-tags"><span class="tag tag-blue">CNNs</span><span class="tag tag-purple">Transfer Learning</span><span class="tag tag-gray">Deepfake</span></div>
+      </div>
+      <div class="area-card reveal reveal-delay-2">
+        <span class="area-icon">🧠</span>
+        <h3>Deep Learning</h3>
+        <p>Neural architectures, knowledge distillation for model compression, and lightweight networks for resource-constrained inference on edge devices.</p>
+        <div class="area-tags"><span class="tag tag-blue">PyTorch</span><span class="tag tag-purple">TensorFlow</span><span class="tag tag-gray">Distillation</span></div>
+      </div>
+      <div class="area-card reveal">
+        <span class="area-icon">📖</span>
+        <h3>Natural Language Processing</h3>
+        <p>Text classification, sentiment analysis, and computational behavioral analysis using NLP techniques on social media datasets.</p>
+        <div class="area-tags"><span class="tag tag-blue">Transformers</span><span class="tag tag-purple">BERT</span><span class="tag tag-gray">Sentiment</span></div>
+      </div>
+      <div class="area-card reveal reveal-delay-1">
+        <span class="area-icon">⚛️</span>
+        <h3>Quantum Computing</h3>
+        <p>Quantum mechanics foundations and IBM QISKIT programming — certified with the prestigious Galileo Galilei Medal for quantum computing study.</p>
+        <div class="area-tags"><span class="tag tag-blue">IBM QISKIT</span><span class="tag tag-purple">COMSOL</span><span class="tag tag-gray">Galileo Medal</span></div>
+      </div>
+      <div class="area-card reveal reveal-delay-2">
+        <span class="area-icon">📊</span>
+        <h3>Generative AI</h3>
+        <p>Exploring generative models, large language models, and AI-driven content generation as a growing area of interest and application.</p>
+        <div class="area-tags"><span class="tag tag-blue">LLMs</span><span class="tag tag-purple">Generative Models</span><span class="tag tag-gray">AI Agents</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Publications -->
+<section class="publications">
+  <div class="publications-inner">
+    <div class="section-label reveal">Publications</div>
+    <h2 class="section-title reveal reveal-delay-1">Peer-reviewed <span class="gradient-text">research papers.</span></h2>
+
+    <div class="pub-list">
+      <div class="pub-card reveal" style="cursor:pointer;" onclick="window.open('https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0296336','_blank')">
+        <div class="pub-year">2023</div>
+        <div class="pub-content">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;">
+            <h3>Predictive modeling of consumer purchase behavior on social media: Integrating theory of planned behavior and machine learning for actionable insights</h3>
+            <span class="pub-badge journal">Q1 Journal</span>
+          </div>
+          <div class="pub-meta">Shadman Sakib Khan et al. · PLoS ONE · DOI: 10.17632/nzy5528nst.2 · December 2023</div>
+          <div class="pub-abstract">This study integrates the Theory of Planned Behavior (TPB) with machine learning models to predict consumer purchase intentions on social media platforms. The research provides actionable insights for marketers by identifying key behavioral predictors using supervised ML algorithms on real-world social media data.</div>
+          <div style="margin-top:16px;" class="flex gap-8 flex-wrap">
+            <span class="tag tag-blue">Machine Learning</span>
+            <span class="tag tag-purple">Consumer Behavior</span>
+            <span class="tag tag-gray">Social Media</span>
+            <span class="tag tag-gray">Theory of Planned Behavior</span>
+            <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0296336" target="_blank" onclick="e=>e.stopPropagation()" style="margin-left:auto;font-size:0.8rem;color:var(--ai-blue);font-weight:600;padding:4px 12px;border:1px solid rgba(79,126,255,0.3);border-radius:99px;">Read Paper →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-card reveal reveal-delay-1" style="cursor:pointer;" onclick="window.open('https://ieeexplore.ieee.org/abstract/document/11022522','_blank')">
+        <div class="pub-year">2024</div>
+        <div class="pub-content">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;">
+            <h3>Smartphone-based Deepfake Detection Through Transfer Learning and Lightweight Knowledge Distillation Technique</h3>
+            <span class="pub-badge conf">IEEE</span>
+          </div>
+          <div class="pub-meta">Shadman Sakib Khan et al. · 27th ICCIT 2024, IEEE · DOI: 10.1109/ICCIT64611.2024.11022522 · Published June 2025</div>
+          <div class="pub-abstract">A novel approach to deepfake detection optimized for smartphone deployment. The method combines transfer learning with lightweight knowledge distillation to achieve high accuracy deepfake identification while meeting the computational constraints of mobile devices — making real-time deepfake detection accessible on consumer hardware.</div>
+          <div style="margin-top:16px;" class="flex gap-8 flex-wrap">
+            <span class="tag tag-blue">Computer Vision</span>
+            <span class="tag tag-purple">Deep Learning</span>
+            <span class="tag tag-gray">Knowledge Distillation</span>
+            <span class="tag tag-gray">Transfer Learning</span>
+            <span class="tag tag-gray">Deepfake Detection</span>
+            <a href="https://ieeexplore.ieee.org/abstract/document/11022522" target="_blank" style="margin-left:auto;font-size:0.8rem;color:var(--ai-blue);font-weight:600;padding:4px 12px;border:1px solid rgba(79,126,255,0.3);border-radius:99px;">IEEE Xplore →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Awards & Recognition -->
+<section style="padding:var(--section-pad) clamp(20px,5vw,60px);background:var(--gray-50);">
+  <div style="max-width:var(--max-width);margin:0 auto;">
+    <div class="section-label reveal">Awards & Recognition</div>
+    <h2 class="section-title reveal reveal-delay-1">Academic <span class="gradient-text">excellence.</span></h2>
+    <div class="grid-3 mt-48">
+      <div class="area-card reveal" style="background:linear-gradient(135deg,#fffbeb,#fef3c7);border-color:#fde68a;">
+        <span class="area-icon">🏅</span>
+        <h3>Cum Laude — NSU</h3>
+        <p>Awarded the prestigious <strong>Cum Laude</strong> distinction by North South University for maintaining a CGPA of 3.5+ throughout the program. July 2023.</p>
+        <div class="area-tags"><span class="tag tag-blue">CGPA 3.58/4.00</span><span class="tag tag-gray">~89%</span></div>
+      </div>
+      <div class="area-card reveal reveal-delay-1" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);border-color:#bfdbfe;">
+        <span class="area-icon">🎓</span>
+        <h3>Merit-Based Scholarship</h3>
+        <p>Received a <strong>25% tuition waiver</strong> from North South University for maintaining academic excellence (CGPA 3.5+) from June 2022 to June 2023.</p>
+        <div class="area-tags"><span class="tag tag-blue">25% Waiver</span><span class="tag tag-gray">NSU 2022–2023</span></div>
+      </div>
+      <div class="area-card reveal reveal-delay-2" style="background:linear-gradient(135deg,#f5f3ff,#ede9fe);border-color:#c4b5fd;">
+        <span class="area-icon">⚛️</span>
+        <h3>Galileo Galilei Medal</h3>
+        <p>Earned the <strong>Galileo Galilei Medal</strong> for excellence in Quantum Mechanics & Quantum Computing (IBM QISKIT) — Dr. Mahdy Online Course. September 2022.</p>
+        <div class="area-tags"><span class="tag tag-purple">Quantum Computing</span><span class="tag tag-gray">IBM QISKIT</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Courses & Certs -->
+<section style="padding:var(--section-pad) clamp(20px,5vw,60px);">
+  <div style="max-width:var(--max-width);margin:0 auto;">
+    <div class="section-label reveal">Certifications</div>
+    <h2 class="section-title reveal reveal-delay-1">Courses & <span class="gradient-text">certificates.</span></h2>
+    <div class="pub-list mt-48">
+      <div class="pub-card reveal">
+        <div class="pub-year" style="min-width:60px;">2024</div>
+        <div class="pub-content">
+          <h3>BMEET Plus for Graduate Students</h3>
+          <div class="pub-meta">University of Miyazaki & JICA · 5th March 2024 · Japan</div>
+        </div>
+        <span class="pub-badge journal">Graduate</span>
+      </div>
+      <div class="pub-card reveal reveal-delay-1">
+        <div class="pub-year" style="min-width:60px;">2023</div>
+        <div class="pub-content">
+          <h3>BMEET for University Students</h3>
+          <div class="pub-meta">University of Miyazaki & JICA · 8th December 2023 · Japan</div>
+        </div>
+        <span class="pub-badge conf">University</span>
+      </div>
+      <div class="pub-card reveal reveal-delay-2">
+        <div class="pub-year" style="min-width:60px;">2023</div>
+        <div class="pub-content">
+          <h3>Research Methodology: Basic to Advanced</h3>
+          <div class="pub-meta">Research Help Bangladesh · 1st October 2023 · Bangladesh</div>
+        </div>
+        <span class="pub-badge preprint">Research</span>
+      </div>
+      <div class="pub-card reveal">
+        <div class="pub-year" style="min-width:60px;">2022</div>
+        <div class="pub-content">
+          <h3>Quantum Mechanics & Quantum Computing: COMSOL & IBM QISKIT</h3>
+          <div class="pub-meta">Dr. Mahdy Online Course · 3rd September 2022 · Bangladesh · <strong>Galileo Galilei Medal</strong></div>
+        </div>
+        <span class="pub-badge journal">🥇 Medal</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="border-top:1px solid var(--gray-100);">
+  <div class="footer">
+    <div class="nav-logo"><span class="nav-logo-dot"></span>Shadman Sakib Khan</div>
+    <ul class="footer-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="projects.html" target="_blank">Projects</a></li>
+      <li><a href="expertise.html" target="_blank">Expertise</a></li>
+      <li><a href="contact.html" target="_blank">Contact</a></li>
+    </ul>
+    <p class="footer-copy">© <span id="footer-year"></span> Shadman Sakib Khan</p>
+  </div>
+</footer>
+
+<script src="../js/global.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const counters = document.querySelectorAll('[data-counter]');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          window.animateCounter(e.target, parseInt(e.target.dataset.counter), 1600, e.target.dataset.suffix||'');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(c => obs.observe(c));
+    window.initTiltCards('.area-card');
+    window.initTiltCards('.pub-card');
+  });
+</script>
+</body>
+</html>

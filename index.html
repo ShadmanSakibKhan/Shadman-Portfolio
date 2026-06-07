@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shadman Sakib Khan — AI Engineer, Researcher, and Full-Stack Developer based in Dhaka, Bangladesh.">
+  <meta name="keywords" content="AI Engineer, Machine Learning, LLM, Full Stack Developer, Portfolio, Bangladesh, NSU">
+  <meta property="og:title" content="Shadman Sakib Khan — AI Engineer & Researcher">
+  <meta property="og:description" content="BSc CSE (AI Major) from NSU. Published AI Researcher. Building intelligent systems.">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <title>Shadman Sakib Khan — AI Engineer & Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+<div class="noise-overlay"></div>
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<div id="scroll-progress"></div>
+
+<div id="loading-screen">
+  <div class="loading-logo">SSK<span class="gradient-text">.</span></div>
+  <div class="loading-bar-wrap"><div class="loading-bar"></div></div>
+  <div class="loading-pct">0%</div>
+</div>
+
+<!-- Navigation -->
+<nav class="nav" role="navigation">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-dot"></span>
+    Shadman<span class="gradient-text">.</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about" class="active">About</a></li>
+    <li><a href="pages/research.html" target="_blank">Research</a></li>
+    <li><a href="pages/projects.html" target="_blank">Projects</a></li>
+    <li><a href="pages/expertise.html" target="_blank">Expertise</a></li>
+    <li><a href="pages/contact.html" target="_blank">Contact</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="pages/contact.html" target="_blank" class="btn btn-primary" data-magnetic>Book a Meeting</a>
+  </div>
+  <button class="nav-hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="nav-mobile">
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="pages/research.html" target="_blank">Research</a></li>
+    <li><a href="pages/projects.html" target="_blank">Projects</a></li>
+    <li><a href="pages/expertise.html" target="_blank">Expertise</a></li>
+    <li><a href="pages/contact.html" target="_blank">Contact</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section class="hero" aria-label="Hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-dot"></span>
+      BSc CSE (AI) · North South University · Cum Laude 🎓
+    </div>
+    <h1 class="hero-name">
+      <span class="hero-name-line">Shadman</span>
+      <span class="hero-name-line">Sakib <span class="gradient-text">Khan</span></span>
+    </h1>
+    <div class="hero-roles">
+      <span id="typed-role" class="hero-role-typed"></span>
+    </div>
+    <p class="hero-desc">
+      AI/ML Engineer & Published Researcher from Dhaka, Bangladesh. 
+      Specializing in Machine Learning, Deep Learning, NLP & Computer Vision. 
+      Building intelligent systems that make a real-world impact.
+    </p>
+    <div class="hero-actions">
+      <a href="#about" class="btn btn-primary btn-lg" data-magnetic>
+        Explore My Journey
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3l5 5-5 5M3 8h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="pages/research.html" target="_blank" class="btn btn-secondary btn-lg" data-magnetic>View Research</a>
+      <a href="pages/contact.html" target="_blank" class="btn btn-ghost btn-lg" data-magnetic>Book a Meeting</a>
+    </div>
+  </div>
+
+  <div class="hero-badges" aria-hidden="true">
+    <div class="hero-badge">
+      <div class="hero-badge-icon blue">🧠</div>
+      <div class="hero-badge-text">
+        <strong>AI Research</strong>
+        <span>IEEE & PLoS ONE</span>
+      </div>
+    </div>
+    <div class="hero-badge">
+      <div class="hero-badge-icon purple">🎓</div>
+      <div class="hero-badge-text">
+        <strong>NSU Cum Laude</strong>
+        <span>CGPA 3.58 / 4.00</span>
+      </div>
+    </div>
+    <div class="hero-badge">
+      <div class="hero-badge-icon green">⚡</div>
+      <div class="hero-badge-text">
+        <strong>Full Stack Dev</strong>
+        <span>Web & AI Apps</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint" aria-hidden="true">
+    <div class="hero-scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about" data-section="about">
+  <div class="about-inner">
+    <div class="about-visual reveal">
+      <div class="about-portrait-ring"></div>
+      <div class="about-portrait-ring-2"></div>
+      <div class="about-portrait" style="background:linear-gradient(135deg,#e8f0fe,#f3e8ff);">
+        <img src="assets/images/profile_0.jpeg" alt="Shadman Sakib Khan" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+      </div>
+      <div class="about-stat-bubble top-right">
+        <div class="about-stat-num">3.58</div>
+        <div style="font-size:0.75rem;color:var(--gray-500);">CGPA / 4.00</div>
+      </div>
+      <div class="about-stat-bubble bottom-left">
+        <div class="about-stat-num">Cum Laude</div>
+        <div style="font-size:0.75rem;color:var(--gray-500);">NSU Award</div>
+      </div>
+    </div>
+
+    <div class="about-content">
+      <div class="section-label reveal">About Me</div>
+      <h2 class="reveal reveal-delay-1">
+        Turning ideas into<br><span class="gradient-text">intelligent systems.</span>
+      </h2>
+      <p class="reveal reveal-delay-2">
+        I'm <strong>Shadman Sakib Khan</strong> — an AI/ML Engineer and Researcher from Dhaka, Bangladesh.
+        I hold a BSc in Computer Science & Engineering (Major: Artificial Intelligence) from 
+        <strong>North South University</strong>, graduating with <strong>Cum Laude</strong> (CGPA 3.58/4.00).
+      </p>
+      <p class="reveal reveal-delay-2">
+        I've published research in Q1 journals (PLoS ONE) and IEEE conferences, with work spanning 
+        predictive ML modeling, deepfake detection via knowledge distillation, and NLP. 
+        Currently interning at <strong>CodeAlpha</strong> as an ML/AI Intern after completing a front-end internship at <strong>Itransition</strong>.
+      </p>
+      <div class="about-traits reveal reveal-delay-3">
+        <div class="about-trait">🧠 AI/ML Engineer</div>
+        <div class="about-trait">🔬 Published Researcher</div>
+        <div class="about-trait">🌐 Web Developer</div>
+        <div class="about-trait">📦 Product Builder</div>
+        <div class="about-trait">🎸 Guitar Player</div>
+        <div class="about-trait">♟️ Chess Enthusiast</div>
+      </div>
+      <div class="mt-32 reveal reveal-delay-4 flex gap-12" style="flex-wrap:wrap;">
+        <a href="pages/projects.html" target="_blank" class="btn btn-primary" data-magnetic>See My Work →</a>
+        <a href="https://github.com/ShadmanSakibKhan" target="_blank" class="btn btn-secondary" data-magnetic>GitHub</a>
+        <a href="https://www.linkedin.com/in/shadmansakibkhan97" target="_blank" class="btn btn-secondary" data-magnetic>LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- NUMBERS -->
+<section class="numbers-section" id="numbers" data-section="numbers">
+  <div class="numbers-inner">
+    <div class="text-center">
+      <div class="section-label reveal" style="justify-content:center;">Impact</div>
+      <h2 class="section-title reveal reveal-delay-1">Numbers that <span class="gradient-text">speak.</span></h2>
+    </div>
+    <div class="numbers-grid mt-64">
+      <div class="number-card reveal">
+        <span class="number-value" data-counter="2" data-suffix="">0</span>
+        <span class="number-label">Published Papers</span>
+      </div>
+      <div class="number-card reveal reveal-delay-1">
+        <span class="number-value" data-counter="358" data-suffix="">0</span>
+        <span class="number-label">CGPA × 100 (3.58)</span>
+      </div>
+      <div class="number-card reveal reveal-delay-2">
+        <span class="number-value" data-counter="5" data-suffix="+">0+</span>
+        <span class="number-label">Clubs & Societies</span>
+      </div>
+      <div class="number-card reveal reveal-delay-3">
+        <span class="number-value" data-counter="4" data-suffix="+">0+</span>
+        <span class="number-label">Languages Known</span>
+      </div>
+      <div class="number-card reveal">
+        <span class="number-value" data-counter="2" data-suffix="">0</span>
+        <span class="number-label">Internships</span>
+      </div>
+      <div class="number-card reveal reveal-delay-1">
+        <span class="number-value" data-counter="10" data-suffix="+">0+</span>
+        <span class="number-label">Courses & Certs</span>
+      </div>
+      <div class="number-card reveal reveal-delay-2">
+        <span class="number-value" data-counter="2013" data-suffix="">0</span>
+        <span class="number-label">Society Founded</span>
+      </div>
+      <div class="number-card reveal reveal-delay-3">
+        <span class="number-value" data-counter="25" data-suffix="%">0%</span>
+        <span class="number-label">NSU Merit Scholarship</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS PREVIEW -->
+<section class="projects-preview" id="projects-preview">
+  <div class="projects-preview-inner">
+    <div class="projects-header">
+      <div>
+        <div class="section-label reveal">Research & Projects</div>
+        <h2 class="section-title reveal reveal-delay-1">Featured <span class="gradient-text">work.</span></h2>
+      </div>
+      <a href="pages/projects.html" target="_blank" class="btn btn-secondary reveal reveal-delay-2">View All →</a>
+    </div>
+    <div class="grid-3">
+      <div class="project-card-preview reveal">
+        <div class="project-card-thumb" style="background:linear-gradient(135deg,#eef2ff,#dde6ff);">📊</div>
+        <div class="project-card-body">
+          <h3>Consumer Behavior ML Model</h3>
+          <p>Q1 Journal — PLoS ONE. Predictive modeling of purchase behavior on social media using ML + Theory of Planned Behavior.</p>
+          <div class="project-card-tags">
+            <span class="tag tag-blue">Machine Learning</span>
+            <span class="tag tag-purple">PLoS ONE</span>
+            <span class="tag tag-gray">Q1 Journal</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card-preview reveal reveal-delay-1">
+        <div class="project-card-thumb" style="background:linear-gradient(135deg,#fdf4ff,#fae8ff);">🕵️</div>
+        <div class="project-card-body">
+          <h3>Deepfake Detection System</h3>
+          <p>IEEE ICCIT 2024 — Smartphone-based deepfake detection via transfer learning and lightweight knowledge distillation.</p>
+          <div class="project-card-tags">
+            <span class="tag tag-blue">Deep Learning</span>
+            <span class="tag tag-purple">IEEE</span>
+            <span class="tag tag-gray">Computer Vision</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card-preview reveal reveal-delay-2">
+        <div class="project-card-thumb" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);">🌐</div>
+        <div class="project-card-body">
+          <h3>Full Stack AI Applications</h3>
+          <p>Web & app development with AI integration — HTML/CSS/JS, Python, Java — built across internships and personal projects.</p>
+          <div class="project-card-tags">
+            <span class="tag tag-blue">Python</span>
+            <span class="tag tag-purple">Web Dev</span>
+            <span class="tag tag-gray">AI Integration</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-glow" aria-hidden="true"></div>
+  <div class="cta-inner">
+    <div class="section-label reveal" style="justify-content:center;">Let's Connect</div>
+    <h2 class="reveal reveal-delay-1">Ready to build something <span class="gradient-text">extraordinary?</span></h2>
+    <p class="reveal reveal-delay-2">Whether you're looking for an AI engineer, a research collaborator, or a full-stack developer — I'd love to hear about your project.</p>
+    <div class="flex flex-center gap-16 reveal reveal-delay-3" style="flex-wrap:wrap;">
+      <a href="pages/contact.html" target="_blank" class="btn btn-primary btn-lg" data-magnetic>
+        Get in Touch →
+      </a>
+      <a href="mailto:hredoykhan523@gmail.com" class="btn btn-secondary btn-lg" data-magnetic>
+        hredoykhan523@gmail.com
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer style="border-top:1px solid var(--gray-100);">
+  <div class="footer">
+    <div>
+      <div class="nav-logo" style="margin-bottom:8px;"><span class="nav-logo-dot"></span>Shadman Sakib Khan</div>
+      <p class="footer-copy">AI Engineer · Researcher · Full Stack Developer · Dhaka, Bangladesh</p>
+    </div>
+    <ul class="footer-links">
+      <li><a href="pages/research.html" target="_blank">Research</a></li>
+      <li><a href="pages/projects.html" target="_blank">Projects</a></li>
+      <li><a href="pages/expertise.html" target="_blank">Expertise</a></li>
+      <li><a href="pages/contact.html" target="_blank">Contact</a></li>
+    </ul>
+    <p class="footer-copy">© <span id="footer-year"></span> Shadman Sakib Khan</p>
+  </div>
+</footer>
+
+<script src="js/global.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
